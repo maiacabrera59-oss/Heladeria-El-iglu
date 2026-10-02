@@ -1,11 +1,17 @@
 const { Router } = require("express");
 
-const pedidosController = require("../controllers/PedidosController");
+const PedidosController = require("../controllers/PedidosController");
+const asyncHandler = require("../middlewares/AsyncHandler");
 
 const router = Router();
 
-router.get("/pedidos", pedidosController.obtenerPedidos);
-router.post("/pedidos", pedidosController.crearPedido);
-router.put("/pedidos/:id", pedidosController.avanzarPedido);
+router.get("/pedidos", asyncHandler(PedidosController.obtenerPedidos));
+
+router.post("/pedidos", asyncHandler(PedidosController.crearPedido));
+
+router.put(
+    "/pedidos/:id/avanzar",
+    asyncHandler(PedidosController.avanzarPedido)
+);
 
 module.exports = router;
