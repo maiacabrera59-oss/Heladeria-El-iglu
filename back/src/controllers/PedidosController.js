@@ -7,13 +7,16 @@ const obtenerPedidos = async (req, res) => {
 };
 
 const crearPedido = async (req, res) => {
-    const { tamaño, sabores } = req.body;
+    const { cliente, tamanio, sabores } = req.body;
 
-    const pedido = await pedidosService.crearPedido(tamaño, sabores);
+    const pedido = await pedidosService.crearPedido(
+        cliente,
+        tamanio,
+        sabores
+    );
 
     res.status(201).json(pedido);
 };
-
 const avanzarPedido = async (req, res) => {
     const { id } = req.params;
 
