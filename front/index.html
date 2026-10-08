@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heladería Iglú</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🍦 Heladería El Iglú</h1>
+        <p>Pedidos de helado</p>
+    </header>
+
+    <main>
+
+        <section class="panel">
+            <h2>Nuevo pedido</h2>
+
+            <form id="formPedido">
+
+                <label for="cliente">Cliente</label>
+                <input type="text" id="cliente" placeholder="Nombre del cliente" required>
+
+                <label for="tamanio">Tamaño</label>
+                <select id="tamanio" required>
+                    <option value="">Seleccionar tamaño</option>
+                    <option value="Cuarto">Cuarto - $9.800</option>
+                    <option value="Medio">Medio - $17.800</option>
+                    <option value="Kilo">Kilo - $30.500</option>
+                </select>
+
+                <h3>Elegí tus sabores</h3>
+
+                <div id="contenedorSabores" class="sabores"></div>
+
+                <div id="resumenPedido"></div>
+
+                <button type="submit" id="btnCrear">
+                    Crear pedido
+                </button>
+
+            </form>
+
+            <div id="mensaje"></div>
+        </section>
+
+        <section class="panel">
+            <h2>Pedidos</h2>
+
+            <div id="listaPedidos"></div>
+        </section>
+
+    </main>
+
+    <script type="module" src="app.js"></script>
+
+</body>
+
+</html>
