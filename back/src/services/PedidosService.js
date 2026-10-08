@@ -30,11 +30,13 @@ async function crearPedido(cliente, tamanio, sabores) {
 async function avanzarPedido(idPedido) {
     const pool = await getConnection();
 
-    const resultado = await pool.request()
-        .input("IdPedido", idPedido)
+    await pool.request()
+        .input("IdPedido", sql.Int, idPedido)
         .execute("usp_AvanzarPedido");
 
-    return resultado.recordset;
+    return {
+        mensaje: "Pedido avanzado correctamente"
+    };
 }
 
 module.exports = {
